@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.FakeServices", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.Fakers", "Altkom.Shop.Fakers\Altkom.Shop.Fakers.csproj", "{325E363F-4DDF-4724-BCE2-1ADE59DA818F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.Api", "Altkom.Shop.Api\Altkom.Shop.Api.csproj", "{7C847D7A-E4C9-42C0-AC25-FF224E9AAE23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{325E363F-4DDF-4724-BCE2-1ADE59DA818F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{325E363F-4DDF-4724-BCE2-1ADE59DA818F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{325E363F-4DDF-4724-BCE2-1ADE59DA818F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C847D7A-E4C9-42C0-AC25-FF224E9AAE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C847D7A-E4C9-42C0-AC25-FF224E9AAE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C847D7A-E4C9-42C0-AC25-FF224E9AAE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C847D7A-E4C9-42C0-AC25-FF224E9AAE23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
