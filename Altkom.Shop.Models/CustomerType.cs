@@ -3,6 +3,8 @@
     public enum CustomerType
     {
         Private,
-        Company
+        Company,
+        Limited,
+        Global
     }
 }
