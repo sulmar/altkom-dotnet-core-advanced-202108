@@ -15,7 +15,17 @@ namespace Altkom.Shop.Models
         public Gender Gender { get; set; }
         public bool IsRemoved { get; set; }
 
+        public Address ShipAddress { get; set; }
+
         public bool IsSelected { get; set; }
+
+    }
+
+    public class Address
+    {
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string ZipCode { get; set; }
     }
 
     public enum Gender

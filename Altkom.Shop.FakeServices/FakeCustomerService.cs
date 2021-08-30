@@ -1,6 +1,7 @@
 ﻿using Altkom.Shop.Fakers;
 using Altkom.Shop.IServices;
 using Altkom.Shop.Models;
+using Altkom.Shop.Models.SearchCriterias;
 using Bogus;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,29 @@ namespace Altkom.Shop.FakeServices
         public Customer Get(int id)
         {
             return customers.SingleOrDefault(c => c.Id == id);
+        }
+
+        public IEnumerable<Customer> Get(CustomerSearchCritiera searchCritiera)
+        {
+            var query = customers.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchCritiera.City))
+            {
+                query = query.Where(c => c.ShipAddress.City == searchCritiera.City);
+            }
+
+            if (!string.IsNullOrEmpty(searchCritiera.Street))
+            {
+                query = query.Where(c => c.ShipAddress.Street == searchCritiera.Street);
+            }
+
+            if (!string.IsNullOrEmpty(searchCritiera.ZipCode))
+            {
+                query = query.Where(c => c.ShipAddress.ZipCode == searchCritiera.ZipCode);
+            }
+
+            return query.ToList();
+
         }
 
         public void Remove(int id)

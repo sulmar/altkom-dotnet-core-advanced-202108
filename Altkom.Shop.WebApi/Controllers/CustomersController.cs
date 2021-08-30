@@ -7,9 +7,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
+using Altkom.Shop.Models.SearchCriterias;
 
 namespace Altkom.Shop.WebApi.Controllers
 {
+    // api/customers
+    // api/orders
+
+    // api/orders?customerId=10
+
+    
+
+    // api/customers/{Id}/orders
+    // api/customers/{Id}/products
+
+    // api/customers/{Id}/orders/lastyear
+
+
+
     [ApiController]
     [Route("api/customers")]
     public class CustomersController : ControllerBase
@@ -22,19 +37,19 @@ namespace Altkom.Shop.WebApi.Controllers
         }
 
         // GET api/customers
-        [HttpGet]
-        public ActionResult<IEnumerable<Customer>> Get()
-        {
-            var customers = customerService.Get();
+        //[HttpGet]
+        //public ActionResult<IEnumerable<Customer>> Get()
+        //{
+        //    var customers = customerService.Get();
 
-            return Ok(customers);
-        }
+        //    return Ok(customers);
+        //}
 
         // GET api/customers/{id}
-        [HttpGet("{id}", Name = "GetCustomerById")]
+        [HttpGet("{id:int}", Name = "GetCustomerById")]
         [ProducesResponseType(typeof(Customer), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Customer> Get( int id)
+        public ActionResult<Customer> Get(int id)
         {
             Customer customer = customerService.Get(id);
 
@@ -42,6 +57,21 @@ namespace Altkom.Shop.WebApi.Controllers
                 return NotFound();
 
             return Ok(customer);
+        }
+
+        [HttpGet("{pesel}")]
+        public ActionResult<Customer> Get(string pesel)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        // api/customers?City=Bydgoszcz&Street=Dworcowa&Kasia=123
+        public ActionResult<IEnumerable<Customer>> Get([FromQuery] CustomerSearchCritiera searchCritiera)
+        {
+            var customers = customerService.Get(searchCritiera);
+
+            return Ok(customers);
         }
 
         // POST api/customers
@@ -120,6 +150,7 @@ namespace Altkom.Shop.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
+        [HttpHead("{id}")]
         public IActionResult Head(int id)
         {
             Customer customer = customerService.Get(id);
