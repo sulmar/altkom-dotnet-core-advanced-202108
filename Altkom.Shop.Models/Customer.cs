@@ -11,11 +11,13 @@ namespace Altkom.Shop.Models
         public DateTime? DateOfBirth { get; set; }
         public Gender Gender { get; set; }
         public bool IsRemoved { get; set; }
+
+        public bool IsSelected { get; set; }
     }
 
     public enum Gender
     {
-        Female,
-        Male
+        Male = 0,
+        Female = 1
     }
 }

@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.WebApi", "Altko
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.IServices", "Altkom.Shop.IServices\Altkom.Shop.IServices.csproj", "{BD6E0BD9-CB61-46B2-A1DC-A557C1903B44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.FakeServices", "Altkom.Shop.FakeServices\Altkom.Shop.FakeServices.csproj", "{F3B3FE8D-CD16-4AF4-BFF4-B09B959024AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.Fakers", "Altkom.Shop.Fakers\Altkom.Shop.Fakers.csproj", "{325E363F-4DDF-4724-BCE2-1ADE59DA818F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{BD6E0BD9-CB61-46B2-A1DC-A557C1903B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD6E0BD9-CB61-46B2-A1DC-A557C1903B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD6E0BD9-CB61-46B2-A1DC-A557C1903B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B3FE8D-CD16-4AF4-BFF4-B09B959024AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B3FE8D-CD16-4AF4-BFF4-B09B959024AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B3FE8D-CD16-4AF4-BFF4-B09B959024AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B3FE8D-CD16-4AF4-BFF4-B09B959024AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325E363F-4DDF-4724-BCE2-1ADE59DA818F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325E363F-4DDF-4724-BCE2-1ADE59DA818F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325E363F-4DDF-4724-BCE2-1ADE59DA818F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325E363F-4DDF-4724-BCE2-1ADE59DA818F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
