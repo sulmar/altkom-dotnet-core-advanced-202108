@@ -1,48 +1,48 @@
-﻿using Altkom.Shop.IServices;
+﻿using Altkom.Shop.Fakers;
+using Altkom.Shop.IServices;
 using Altkom.Shop.Models;
+using Bogus;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Altkom.Shop.FakeServices
 {
     public class FakeCustomerService : ICustomerService
     {
-        private readonly IEnumerable<Customer> customers;
+        private readonly ICollection<Customer> customers;
 
-        public FakeCustomerService()
+        public FakeCustomerService(Faker<Customer> faker)
         {
-            this.customers = new List<Customer>
-            {
-                new Customer { FirstName = "Krzysztof"},
-                new Customer { FirstName = "Łukasz"},
-                new Customer { FirstName = "Mateusz"},
-            };
-
+            this.customers = faker.Generate(100);
         }
 
         public void Add(Customer customer)
         {
-            throw new NotImplementedException();
+            int id = customers.Max(c => c.Id);
+            customer.Id = ++id;
+            customers.Add(customer);
         }
 
         public IEnumerable<Customer> Get()
         {
-            throw new NotImplementedException();
+            return customers;
         }
 
         public Customer Get(int id)
         {
-            throw new NotImplementedException();
+            return customers.SingleOrDefault(c => c.Id == id);
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            customers.Remove(Get(id));
         }
 
         public void Update(Customer customer)
         {
-            throw new NotImplementedException();
+            var existingCustomer = Get(customer.Id);
+            existingCustomer.IsRemoved = true;
         }
     }
 }

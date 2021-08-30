@@ -2,6 +2,9 @@
 
 namespace Altkom.Shop.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Customer : BaseEntity
     {
         public string FirstName { get; set; }

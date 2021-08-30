@@ -18,6 +18,7 @@ namespace Altkom.Shop.Fakers
             RuleFor(p => p.Gender, f => (Gender) f.Person.Gender);
             RuleFor(p => p.DateOfBirth, f => f.Date.Past(50));
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.2f));
+            RuleFor(p => p.CreatedOn, f => f.Date.Past());
             Ignore(p => p.IsSelected);
         }
     }
