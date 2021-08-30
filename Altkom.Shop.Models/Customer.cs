@@ -9,6 +9,13 @@ namespace Altkom.Shop.Models
         public string FullName => $"{FirstName} {LastName}";
         public CustomerType CustomerType { get; set; }
         public DateTime? DateOfBirth { get; set; }
+        public Gender Gender { get; set; }
         public bool IsRemoved { get; set; }
+    }
+
+    public enum Gender
+    {
+        Female,
+        Male
     }
 }
