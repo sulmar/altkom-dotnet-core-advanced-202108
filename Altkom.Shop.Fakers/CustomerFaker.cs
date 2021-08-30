@@ -9,7 +9,7 @@ namespace Altkom.Shop.Fakers
     // dotnet add package Bogus
     public class CustomerFaker : Faker<Customer>
     {
-        public CustomerFaker()
+        public CustomerFaker(Faker<Address> shipAddressFaker)
         {
             StrictMode(true);
             RuleFor(p => p.Id, f => f.IndexFaker);
@@ -21,6 +21,8 @@ namespace Altkom.Shop.Fakers
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.2f));
             RuleFor(p => p.CreatedOn, f => f.Date.Past());
             Ignore(p => p.IsSelected);
+
+            RuleFor(p => p.ShipAddress, f => shipAddressFaker.Generate());
 
             // RuleFor(p => p.CustomerType, f => f.PickRandom<CustomerType>());
 

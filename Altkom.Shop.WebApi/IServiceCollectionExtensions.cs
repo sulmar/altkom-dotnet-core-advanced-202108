@@ -21,6 +21,7 @@ namespace Altkom.Shop.WebApi
         {
             services.AddSingleton<ICustomerService, FakeCustomerService>();
             services.AddSingleton<Faker<Customer>, CustomerFaker>();
+            services.AddSingleton<Faker<Address>, AddressFaker>();
 
             return services;
         }
