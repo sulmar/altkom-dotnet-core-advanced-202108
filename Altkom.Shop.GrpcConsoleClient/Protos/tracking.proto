@@ -6,7 +6,6 @@ package tracking;
 
 service TrackingService {
 	rpc AddLocation (AddLocationRequest) returns (AddLocationResponse);
-	rpc Subscibe (SubscibeRequest) returns (stream SubscibeResponse);
 }
 
 message AddLocationRequest {
@@ -21,16 +20,4 @@ message AddLocationResponse {
 	bool is_confirmed = 1;
 }
 
-message SubscibeRequest {
-	string model = 1;
-	int32 speed_limit = 2;
-}
-
-message SubscibeResponse {
-	string name = 1;
-	float latitude = 2;
-	float longitude = 3;
-	int32 speed = 4;
-	float direction = 5;
-}
 

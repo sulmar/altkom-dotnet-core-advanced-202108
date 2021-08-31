@@ -74,6 +74,14 @@ namespace Altkom.Shop.WebApi.Controllers
             return Ok(customers);
         }
 
+        [HttpPost("api/customers/upload")]
+        public IActionResult Upload(IFormFile formFile)
+        {
+            throw new NotImplementedException();
+
+            return Accepted();
+        }
+
         // POST api/customers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
