@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.SignalRSenderCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.SignalRReceiverConsoleClient", "Altkom.Shop.SignalRReceiverConsoleClient\Altkom.Shop.SignalRReceiverConsoleClient.csproj", "{8A72E8A1-F3C8-44E3-A63E-B6AFD62BE616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Shop.GrpcServer", "Altkom.Shop.GrpcServer\Altkom.Shop.GrpcServer.csproj", "{5B6E4F50-2809-4A17-9DE3-DA538DD7CE34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{8A72E8A1-F3C8-44E3-A63E-B6AFD62BE616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A72E8A1-F3C8-44E3-A63E-B6AFD62BE616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A72E8A1-F3C8-44E3-A63E-B6AFD62BE616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B6E4F50-2809-4A17-9DE3-DA538DD7CE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6E4F50-2809-4A17-9DE3-DA538DD7CE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6E4F50-2809-4A17-9DE3-DA538DD7CE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6E4F50-2809-4A17-9DE3-DA538DD7CE34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
