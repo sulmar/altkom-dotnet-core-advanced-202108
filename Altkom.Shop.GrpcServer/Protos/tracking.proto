@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 option csharp_namespace = "Altkom.Shop.GrpcServer";
-option java_namespace = "protos.grpcserver.shop.altkom.com";
 
 package tracking;
 
