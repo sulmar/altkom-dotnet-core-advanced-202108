@@ -28,6 +28,8 @@ namespace Altkom.Shop.SignalRServer
                 app.UseDeveloperExceptionPage();
             }
 
+
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

@@ -43,7 +43,11 @@ namespace Altkom.Shop.SignalRSenderConsoleClient
 
             Customer customer = customerFaker.Generate();
 
+            Console.WriteLine($"Sending... {customer.FullName}");
+
             await connection.SendAsync("SendCustomer", customer);
+
+            Console.WriteLine("Sent.");
 
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
