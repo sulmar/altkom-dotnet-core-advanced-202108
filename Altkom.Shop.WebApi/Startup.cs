@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HealthChecks.UI.Core;
 
 namespace Altkom.Shop.WebApi
 {
@@ -49,6 +50,11 @@ namespace Altkom.Shop.WebApi
             services.AddHealthChecks()
                 .AddCheck<RandomHealtCheck>("Random");
 
+            // dotnet add package AspNetCore.HealthChecks.UI
+            // dotnet add package AspNetCore.HealthChecks.UI.InMemory.Storage
+            services
+                .AddHealthChecksUI()
+                .AddInMemoryStorage();
 
         }
 
@@ -80,6 +86,17 @@ namespace Altkom.Shop.WebApi
                     Predicate = _ => true,
                     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
                 });
+
+
+                // healthchecks-ui
+                endpoints.MapHealthChecksUI();
+
+                //endpoints.MapHealthChecksUI(options => {
+                //    options.UIPath = "/health-ui";
+                //    options.ApiPath = "/health";
+
+                //}
+                //);
 
             });
 
