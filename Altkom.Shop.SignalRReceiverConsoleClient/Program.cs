@@ -1,4 +1,5 @@
-﻿using Altkom.Shop.Models;
+﻿using Altkom.Shop.IServices;
+using Altkom.Shop.Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Altkom.Shop.SignalRReceiverConsoleClient
                 .WithUrl(url)
                 .Build();
 
-            connection.On<Customer>("YouHaveGotNewCustomer",
+            connection.On<Customer>(nameof(ICustomerClient.YouHaveGotNewCustomer),
               customer => Console.WriteLine($"Received {customer.FullName}"));
 
             Console.WriteLine("Connecting...");

@@ -1,4 +1,5 @@
 ﻿using Altkom.Shop.Fakers;
+using Altkom.Shop.IServices;
 using Altkom.Shop.Models;
 using Bogus;
 using Microsoft.AspNetCore.SignalR.Client;
@@ -31,28 +32,53 @@ namespace Altkom.Shop.SignalRSenderConsoleClient
 
             HubConnection connection = new HubConnectionBuilder()
                 .WithUrl(url)
+                .WithAutomaticReconnect()
                 .Build();
 
             Console.WriteLine("Connecting...");
 
+            connection.Reconnecting += Connection_Reconnecting;
+            connection.Reconnected += Connection_Reconnected;
+
             await connection.StartAsync();
-            
+
             Console.WriteLine($"Connected {connection.ConnectionId}.");
 
             Faker<Customer> customerFaker = new CustomerFaker(new AddressFaker());
 
-            Customer customer = customerFaker.Generate();
+            var customers = customerFaker.GenerateForever();
 
-            Console.WriteLine($"Sending... {customer.FullName}");
+            foreach (var customer in customers)
+            {
+                Console.WriteLine($"Sending... {customer.FullName}");
 
-            await connection.SendAsync("SendCustomer", customer);
+                await connection.SendAsync(nameof(ICustomerServer.SendCustomer), customer);
 
-            Console.WriteLine("Sent.");
+                Console.WriteLine("Sent.");
+
+                await Task.Delay(TimeSpan.FromMilliseconds(100));
+            }
 
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
 
             Console.ResetColor();
+        }
+
+        private static Task Connection_Reconnected(string arg)
+        {
+            Console.WriteLine("Reconnected.");
+
+            // TODO: send cached data
+
+            return Task.CompletedTask;
+        }
+
+        private static Task Connection_Reconnecting(Exception arg)
+        {
+            Console.WriteLine("Reconnecting...");
+
+            return Task.CompletedTask;
 
         }
     }

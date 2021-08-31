@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Altkom.Shop.Fakers\Altkom.Shop.Fakers.csproj" />
+    <ProjectReference Include="..\Altkom.Shop.IServices\Altkom.Shop.IServices.csproj" />
     <ProjectReference Include="..\Altkom.Shop.Models\Altkom.Shop.Models.csproj" />
   </ItemGroup>
 
