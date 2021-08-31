@@ -2,8 +2,11 @@ using Altkom.Shop.Fakers;
 using Altkom.Shop.FakeServices;
 using Altkom.Shop.IServices;
 using Altkom.Shop.Models;
+using Altkom.Shop.WebApi.HealtChecks;
 using Bogus;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -42,6 +45,11 @@ namespace Altkom.Shop.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Altkom.Shop.WebApi", Version = "v1" });
             });
+
+            services.AddHealthChecks()
+                .AddCheck<RandomHealtCheck>("Random");
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,11 +66,21 @@ namespace Altkom.Shop.WebApi
 
             app.UseRouting();
 
+
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                // dotnet add package AspNetCore.HealthChecks.UI.Client
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
+
             });
 
         }
