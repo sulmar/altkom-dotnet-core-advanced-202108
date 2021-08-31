@@ -25,7 +25,7 @@ namespace Altkom.Shop.SignalRSenderConsoleClient
 
             Console.WriteLine("Hello Signal-R Sender!");
 
-            const string url = "http://localhost:5000/signalr/customers";
+            const string url = "https://localhost:5001/signalr/customers";
 
             // dotnet add package Microsoft.AspNetCore.SignalR.Client
 
